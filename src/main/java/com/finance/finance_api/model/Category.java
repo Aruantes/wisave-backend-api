@@ -1,4 +1,4 @@
-package com.financas.financas_api.model;
+package com.finance.finance_api.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,21 +10,22 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Categoria {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 50)
-    private String nome;
+    @Column(name = "nome", nullable = false, length = 50)
+    private String name;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 10)
-    private TipoTransacao tipo;
+    @Column(name = "tipo", nullable = false, length = 10)
+    private TransactionType type;
 
-    private Boolean essencial = false;
+    @Column(name = "essencial")
+    private Boolean essential = false;
 
     @Column(name = "cor_hex", length = 7)
-    private String corHex = "#000000";
+    private String hexColor = "#000000";
 }

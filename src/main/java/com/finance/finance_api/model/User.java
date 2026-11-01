@@ -1,4 +1,4 @@
-package com.financas.financas_api.model;
+package com.finance.finance_api.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,20 +11,20 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+public class User {
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100)
-    private String nome;
+    @Column(name = "nome", nullable = false, length = 100)
+    private String name;
 
     @Column (nullable = false, unique = true, length = 150)
     private String email;
 
-    @Column (name = "senha_hash", nullable = false)
-    private String senhaHash;
+    @Column(name = "senha_hash", nullable = false)
+    private String passwordHash;
 
-    @Column (name = "criado_em", nullable = false)
-    private LocalDateTime criadoEm = LocalDateTime.now();
+    @Column(name = "criado_em", nullable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 }
