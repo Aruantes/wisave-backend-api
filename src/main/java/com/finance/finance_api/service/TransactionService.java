@@ -54,9 +54,9 @@ public class TransactionService {
     }
 
     @Transactional(readOnly = true)
-    public List<TransactionResponseDTO> findById(Long Id) {
-        Transaction transaction = transactionRepository.findById(Id)
-                .orElseThrow(() -> new RuntimeException("Transaction not found with id: " + Id));
+    public TransactionResponseDTO findById(Long id) {
+        Transaction transaction = transactionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Transaction not found with id: " + id));
 
                 return new TransactionResponseDTO(transaction);
     }

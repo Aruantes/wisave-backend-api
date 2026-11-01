@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,6 +24,7 @@ public class User {
     @Column (nullable = false, unique = true, length = 150)
     private String email;
 
+    @ToString.Exclude
     @Column(name = "senha_hash", nullable = false)
     private String passwordHash;
 
